@@ -27,25 +27,25 @@ const Allproducts = () => {
     }
 
     if (error) {
-        return <div>Error: {error.occured}</div>;
+        return <div>Error</div>;
     }
 
 
     return (
-        <div>
+        <div className="text-center">
             <h1 className="bg-lime-500">ALL the Products</h1>
-            <ui>
+            <ul>
                 {products.map((product) => (
                     <li key={product.id}>
-                        <h2>{product.title}</h2>
+                        <h2 className="font-bold">{product.title}</h2>
                         <p>${product.price}</p>
                         <p>{product.category}</p>
                         <p>{product.description}</p>
-                        <img src={product.image} alt={product.title} width={300}/>
+                        <img className="items-center"src={product.image} alt={product.title} width={300}/>
                         
                     </li>
                 ))}
-            </ui>
+            </ul>
 
 
         </div>
