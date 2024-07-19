@@ -32,17 +32,20 @@ const AllCategories = () => {
 
     return (
         <div>
-          {product && product.length ? product.map((product) => (
-            <div key={product.id}>
-              <h2>{product.title}</h2>
-              <p>Price: ${product.price}</p>
-              <p>{product.description}</p>
-              <img src={product.image} alt={product.title} style={{ width: '200px' }} />
-            </div>
-          )) : (
-            <p>No product data available</p>
-          )}
-        </div>
+  {Array.isArray(product) && product.length > 0 ? (
+    product.map((item, index) => (
+      <div key={item.id || index}>
+        <h2>{item.title}</h2>
+        <p>Price: ${item.price}</p>
+        <p>{item.description}</p>
+        <img src={item.image} alt={item.title} style={{ width: '200px' }} />
+      </div>
+    ))
+  ) : (
+    <p>No product data available</p>
+  )}
+</div>
+
       );
 }
 export default AllCategories;
